@@ -34,14 +34,12 @@ function showMovies(array) {
             }
         }
 
-        let offcanvasId = `offcanvasTop_${index}`; // Asigna un ID único para cada offcanvas
-
         let releaseDate = new Date(movie.release_date); // Convierte la fecha de lanzamiento en un objeto Date de JS
         let releaseYear = releaseDate.getFullYear(); // getFullYear obtiene solo el año del objeto Date
 
         lista.innerHTML += `
 
-            <li class="row" data-bs-toggle="offcanvas" data-bs-target="#${offcanvasId}" aria-controls="${offcanvasId}">
+            <li class="row" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop_${movie.id}" aria-controls="offcanvasTop_${movie.id}">
     
                 <div class="col-10">
                     <h4><strong> ${movie.title} </strong></h4>
@@ -51,10 +49,10 @@ function showMovies(array) {
 
             </li>
 
-            <div class="offcanvas offcanvas-top" tabindex="-1" id="${offcanvasId}" aria-labelledby="${offcanvasId}Label">
+            <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop_${movie.id}" aria-labelledby="offcanvasTop_${movie.id}Label">
                 
                 <div class="offcanvas-header">
-                    <h4 class="offcanvas-title" id="${offcanvasId}Label"> ${movie.title} </h4>
+                    <h4 class="offcanvas-title" id="offcanvasTop_${movie.id}Label"> ${movie.title} </h4>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
 
