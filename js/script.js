@@ -23,9 +23,9 @@ function showMovies(array) {
 
     array.forEach((movie, index) => {
         let stars = "";
-        let vote = Math.floor(movie.vote_average / 2) // Se divide el vote_average y Math.floor() redondea hacia abajo.
+        let vote = Math.round(movie.vote_average / 2) // Se divide el vote_average y Math.round() redondea al número entero más cercano.
 
-        // Bucle que genera 5 estrellas. Dependiendo de la calificación las estrellas se llenan (checked) o se dejan vacías (unchecked)
+        // Bucle que genera 5 estrellas. Dependiendo de la calificación se llenan (checked) o se dejan vacías (unchecked)
         for (let i = 0; i < 5; i++) {
             if (i < vote) {
                 stars += `<i class="fa fa-star checked" aria-hidden="true"></i>`;
@@ -92,14 +92,15 @@ function searchMovie() {
     btnBuscar.addEventListener("click", function () {
         const input = document.getElementById("inputBuscar").value.toLowerCase();
 
-        let filteredMovies = movies.filter(movie => {
-            return movie.title.toLowerCase().includes(input) ||
-                movie.tagline.toLowerCase().includes(input) ||
-                movie.overview.toLowerCase().includes(input) ||
-                movie.genres.some(genre => genre.name.toLowerCase().includes(input)); //some verifica si algun elemento del array cumple la condición
-        });
-
+        if (input!=""){
+            let filteredMovies = movies.filter(movie => {
+                return movie.title.toLowerCase().includes(input) ||
+                    movie.tagline.toLowerCase().includes(input) ||
+                    movie.overview.toLowerCase().includes(input) ||
+                    movie.genres.some(genre => genre.name.toLowerCase().includes(input)); //some verifica si algun elemento del array cumple la condición
+            });
         showMovies(filteredMovies); // Mostrar las películas filtradas
+        }
     });
 }
 
