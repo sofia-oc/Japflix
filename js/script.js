@@ -80,7 +80,7 @@ function showMovies(array) {
             </div>    
         `; 
     });
-    // Linea 66: join selecciona el nombre de cada elemento del array movie.genres y los une con guiones
+    // Linea 64: join selecciona el nombre de cada elemento del array movie.genres y los une con guiones
 }
 
 
