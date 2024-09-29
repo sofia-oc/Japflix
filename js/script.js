@@ -21,7 +21,7 @@ function moviesData(url) {
 function showMovies(array) {
     lista.innerHTML = "";
 
-    array.forEach((movie, index) => {
+    array.forEach(movie => {
         let stars = "";
         let vote = Math.round(movie.vote_average / 2) // Se divide el vote_average y Math.round() redondea al número entero más cercano.
 
